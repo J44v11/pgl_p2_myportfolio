@@ -21,9 +21,12 @@ class WelcomeScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           // Fondo verde bosque (Sustituir por Image.asset si configuras las imágenes locales)
-          Container(
-            color: const Color(0xFF1B2E1E),
-          ), 
+          Image.asset(
+            'assets/images/lapalma_lostilos.jpg',
+            fit: BoxFit.cover, // Hace que la imagen ocupe toda la pantalla sin deformarse
+            color: Colors.black.withOpacity(0.6), // Oscurece la imagen un 60% para que las letras blancas destaquen
+            colorBlendMode: BlendMode.darken,
+          ),
           SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -47,21 +50,15 @@ class WelcomeScreen extends StatelessWidget {
                     color: Colors.white70,
                   ),
                 ),
-                const SizedBox(height: 50),
-                // Ilustración temporal centrada
-                Container(
-                  padding: const EdgeInsets.all(35),
-                  decoration: const BoxDecoration(
-                    color: Colors.white24,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.hiking, 
-                    size: 110, 
-                    color: Colors.white,
-                  ),
+                const SizedBox(height: 40),
+
+                Image.asset(
+                  'assets/images/icono_walking.png',
+                  width: 250, // Ajusta el tamaño según veas en el móvil
+                  fit: BoxFit.contain,
                 ),
-                const SizedBox(height: 70),
+
+                const SizedBox(height: 60),
                 // Botón de navegación principal
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
