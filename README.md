@@ -2,13 +2,11 @@
 
 Aquí se muestran las diferentes pantallas implementadas con la navegación mediante Drawer y BottomNavigationBar:
 
-<p align="center">
-  ### Vista de la Pantalla de Inicio
-  <img src="screenshots/1_inicio.png" width="220" hspace="10">
-  ### Vista de Mis Hobbies
-  <img src="screenshots/2_hobbies.png" width="220" hspace="10">
-  ### Vista de Mi Repositorio
-  <img src="screenshots/3_repositorio.png" width="220" hspace="10">
-  ### Vista del Drawer
-  <img src="screenshots/4_drawer.png" width="220" hspace="10">
-</p>
+### Vista de la Pantalla de Inicio
+![Captura de la sección de inicio](screenshots/1_inicio.png)
+### Vista de Mis Hobbies
+![Captura de la sección de hobbies](screenshots/2_hobbies.png)
+### Vista de Mi Repositorio
+![Captura de la sección de repositorio](screenshots/3_repositorio.png)
+### Vista del Drawer
+![Captura de la sección de drawer](screenshots/4_drawer.png)
