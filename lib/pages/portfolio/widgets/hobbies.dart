@@ -22,25 +22,26 @@ class Hobbies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int halfIndex = hobbiesList.length ~/ 2;
-    final List<String> firstColumn = hobbiesList.sublist(0, halfIndex);
-    final List<String> secondColumn = hobbiesList.sublist(halfIndex);
+    final double screenWidth = MediaQuery.of(context).size.width;
 
-    return Row(
-      spacing: 50,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 10,
-          children: firstColumn.map((hobby) => HobbieBox(text: hobby)).toList(),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 10,
-          children: secondColumn.map((hobby) => HobbieBox(text: hobby)).toList(),
-        ),
-      ],
+    final int columns = screenWidth >= 900
+        ? 4
+        : screenWidth >= 600
+        ? 3
+        : 2;
+
+    return GridView.builder(
+      padding: const EdgeInsets.all(8),
+      itemCount: hobbiesList.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: columns,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 2.6,
+      ),
+      itemBuilder: (context, index) {
+        return HobbieBox(text: hobbiesList[index]);
+      },
     );
   }
 }

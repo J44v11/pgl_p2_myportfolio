@@ -1,30 +1,44 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:pgl_p2_myportfolio/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets(
+    'Muestra la pantalla de bienvenida y navega al portfolio',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(const MyPortfolioApp());
+      await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      // Comprobar la pantalla de bienvenida
+      expect(find.text('Senderos de\nCanarias'), findsOneWidget);
+      expect(
+        find.text('¡Descubre la naturaleza\nde nuestras islas!'),
+        findsOneWidget,
+      );
+      expect(find.text('Empezar'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      // Pulsar el botón para ir al portfolio
+      await tester.tap(find.text('Empezar'));
+      await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+      // Comprobar que se muestra el portfolio
+      expect(find.text('Este es mi portfolio'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'El Drawer muestra las opciones de navegación',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(const MyPortfolioApp());
+      await tester.pumpAndSettle();
+
+      // Abrir el Drawer mediante el botón del AppBar
+      await tester.tap(find.byTooltip('Open navigation menu'));
+      await tester.pumpAndSettle();
+
+      // Comprobar las opciones del Drawer
+      expect(find.text('Inicio'), findsOneWidget);
+      expect(find.text('Mi Portfolio'), findsOneWidget);
+    },
+  );
 }

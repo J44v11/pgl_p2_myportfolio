@@ -24,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
           Image.asset(
             'assets/images/lapalma_lostilos.jpg',
             fit: BoxFit.cover, // Hace que la imagen ocupe toda la pantalla sin deformarse
-            color: Colors.black.withOpacity(0.6), // Oscurece la imagen un 60% para que las letras blancas destaquen
+            color: Colors.black.withValues(alpha: 0.6), // Oscurece la imagen un 60% para que las letras blancas destaquen
             colorBlendMode: BlendMode.darken,
           ),
           SafeArea(
