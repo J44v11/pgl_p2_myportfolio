@@ -10,9 +10,10 @@ abstract class AppColors {
   static const Color textLight = Colors.white;
 
   static final Color headerBackground = Colors.grey[200]!;
+  static final Color footerBackground = Colors.grey[200]!;
   
   static final Color hobbieBoxBackground = Colors.blue[50]!;
   static final Color hobbieBoxBorder = Colors.blue;
   
-  static const Color accent = Colors.amber; // Para iconos activos y tabs
+  static const Color accent = Colors.amber;
 }
