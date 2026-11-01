@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import '../pages/welcome/welcome_screen.dart';
 import '../pages/portfolio/my_portfolio.dart';
+import '../pages/trails/trails_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -12,6 +13,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/portfolio',
       builder: (context, state) => const MyPortfolio(),
+    ),
+    GoRoute(
+      path: '/trails',
+      builder: (context, state) => const TrailsScreen(),
     ),
   ],
 );

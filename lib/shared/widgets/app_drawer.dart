@@ -47,6 +47,14 @@ class AppDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.map, color: Colors.white),
+            title: const Text('Gestión de Senderos', style: TextStyle(color: Colors.white)),
+            onTap: () {
+              context.go('/trails');
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );
