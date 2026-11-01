@@ -11,16 +11,15 @@ class Trail {
     required this.category,
   });
 
-  // Vinculamos la categoría a una imagen de red para cumplir el requisito 6
-  String get imageUrl {
+  String get imagePath {
     switch (category) {
       case 'Bosque':
-        return 'https://imgur.com/ZyWV2nt';
+        return 'assets/images/bosque_sendero.jpg';
       case 'Barranco':
-        return 'https://imgur.com/U9NPIo3';
+        return 'assets/images/barranco_sendero.jpg';
       case 'Costa':
       default:
-        return 'https://imgur.com/TofKWki';
+        return 'assets/images/costa_sendero.jpg';
     }
   }
 }
