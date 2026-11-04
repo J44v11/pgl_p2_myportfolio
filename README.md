@@ -1,6 +1,6 @@
 ### Capturas de la Aplicación
 
-Aquí se muestran las diferentes pantallas implementadas con la navegación mediante Drawer y BottomNavigationBar:
+Aquí se muestran las diferentes pantallas implementadas:
 
 ### Vista de la Pantalla de Inicio
 ![Captura de la sección de inicio](screenshots/1_inicio.png)
