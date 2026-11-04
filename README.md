@@ -10,3 +10,9 @@ Aquí se muestran las diferentes pantallas implementadas con la navegación medi
 ![Captura de la sección de repositorio](screenshots/3_repositorio.png)
 ### Vista del Drawer
 ![Captura de la sección de drawer](screenshots/4_drawer.png)
+### Vista del CRUD
+![Captura de la sección de drawer](screenshots/5_crud.png)
+### Vista del Create
+![Captura de la sección de drawer](screenshots/6_create.png)
+### Vista del Update
+![Captura de la sección de drawer](screenshots/7_edit.png)
