@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'routes/app_router.dart';
 import 'shared/theme/app_colors.dart';
+import 'services/local_storage_service.dart';
 
-void main() {
+void main() async {
+
+  // Asegura que los bindings nativos estén listos antes de usar plugins
+  WidgetsFlutterBinding.ensureInitialized(); //Esto me ayudo la IA
+  
+  // Inicializa nuestro servicio de almacenamiento local
+  await LocalStorageService.init();
+
   runApp(const MyPortfolioApp());
 }
 
