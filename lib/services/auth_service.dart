@@ -16,11 +16,14 @@ class AuthService {
     try {
       final response = await http.post(
         Uri.parse('$_baseUrl/register'),
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json',
+        },
         body: jsonEncode({
-          'name': name,
+          'fullName': name,
           'email': email,
-          'password': password,
+          'pwd': password,
         }),
       );
 
@@ -35,10 +38,13 @@ class AuthService {
     try {
       final response = await http.post(
         Uri.parse('$_baseUrl/login'),
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json',
+        },
         body: jsonEncode({
           'email': email,
-          'password': password,
+          'pwd': password,
         }),
       );
 
@@ -97,6 +103,9 @@ class AuthService {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return; 
     }
+
+    // Imprimimos la respuesta en crudo para ver el error real del backend
+    print('ERROR DE LA API: ${response.statusCode} - ${response.body}');
     
     // Si hay error, la API siempre devuelve un JSON con formato {"message": "..."}
     final Map<String, dynamic> errorBody = jsonDecode(response.body);
@@ -118,7 +127,7 @@ class AuthService {
   // --- MANEJADOR DE CATCH GENERAL ---
   void _handleException(dynamic e) {
     if (e is AppException) {
-      rethrow; // Si ya es una excepción controlada nuestra, la dejamos subir a la UI
+      throw e; // <-- CORRECCIÓN: cambiamos rethrow por throw e
     } else {
       // Si es un error inesperado (ej. SocketException por falta de WiFi)
       throw NetworkException(message: 'No se pudo contactar con el servidor. (¿Render suspendido?)');
